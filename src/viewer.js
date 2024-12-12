@@ -339,7 +339,12 @@ export default class ReactSVGPanZoom extends React.Component {
           }}
 
           onMouseEnter={event => {
-            if (detectTouch()) return;
+            if (detectTouch()) {
+              console.log('Touch detected.');
+              return;
+            } else {
+              console.log('Touch not detected.');
+            }
             let nextValue = onMouseEnterOrLeave(event, this.ViewerDOM, this.getTool(), this.getValue(), this.props);
             if (this.getValue() !== nextValue) this.setValue(nextValue);
           }}
